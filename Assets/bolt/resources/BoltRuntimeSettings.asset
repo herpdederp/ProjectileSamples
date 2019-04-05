@@ -30,9 +30,7 @@ MonoBehaviour:
     serverDejitterDelayMax: 9
     serverConnectionLimit: 32
     serverConnectionAcceptMode: 0
-    commandDejitterDelay: 3
     commandQueueSize: 60
-    commandDelayAllowed: 12
     commandRedundancy: 6
     commandPingMultiplier: 1.25
     useNetworkSimulation: 1
@@ -43,6 +41,8 @@ MonoBehaviour:
     connectionTimeout: 10000
     connectionRequestTimeout: 500
     connectionRequestAttempts: 20
+    disableAutoSceneLoading: 0
+    EnableIPv6: 0
   debugClientCount: 1
   debugStartPort: 50538
   debugStartMapName: test
@@ -50,7 +50,7 @@ MonoBehaviour:
   showDebugInfo: 1
   overrideTimeScale: 1
   logUncaughtExceptions: 0
-  debugEditorMode: 2
+  debugEditorMode: 1
   consoleToggleKey: 9
   consoleVisibleByDefault: 1
   compilationWarnLevel: 4
@@ -60,12 +60,15 @@ MonoBehaviour:
   masterServerGameId: 09A20926-601A-4EF4-BFEE-374761B0D2A5
   showBoltEntityHints: 0
   serializeProjectAsText: 0
-  photonAppId: 
+  photonAppId: 3b9ab777-d576-4a35-9404-1bd32fcce7fe
   photonUsePunch: 1
-  photonCloudRegionIndex: 1
-  photonUseOnPremise: 0
-  photonOnPremiseIpAddress: 127.0.0.1
+  photonCloudRegionIndex: 12
   instantiateMode: 2
   globalEntityBehaviourQueryOption: 3
   globalEntityPriorityCalculatorQueryOption: 3
   globalEntityReplicationFilterQueryOption: 3
+  a2sServerPort: 21777
+  RoomUpdateRate: 1
+  RoomCreateTimeout: 10
+  RoomJoinTimeout: 10
+  enableClientMetrics: 0

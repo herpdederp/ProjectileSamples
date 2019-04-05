@@ -5,6 +5,8 @@ using Bolt;
 public class PlayerController : Bolt.EntityEventListener<IPlayerState>
 {
 
+    bool shoot;
+
     private int selectedWeapon = 1;
 
     [SerializeField]
@@ -31,15 +33,24 @@ public class PlayerController : Bolt.EntityEventListener<IPlayerState>
 
             GameObject GO = GameObject.Instantiate(triggerProjectile, transform.position, state.aimDirection);
 
-            GO.GetComponent<TriggerProjectileController>().frame = BoltNetwork.serverFrame;
+            GO.GetComponent<TriggerProjectileController>().frame = BoltNetwork.ServerFrame;
             // BoltConsole.Write(state.aimDirection.ToString());
         });
 
     }
 
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            shoot = true;
+
+        }
+    }
+
     void OnShoot()
     {
-       // BoltConsole.Write("a");
+        // BoltConsole.Write("a");
 
     }
 
@@ -67,7 +78,9 @@ public class PlayerController : Bolt.EntityEventListener<IPlayerState>
         RaycastHit[] hits = Physics.RaycastAll(ray, 1000, validLayers);
 
 
-        if (Input.GetMouseButtonDown(0))
+        if (shoot == true)
+        {
+            shoot = false;
             foreach (RaycastHit hit in hits)
             {
                 //Debug.Log(hit);
@@ -82,6 +95,7 @@ public class PlayerController : Bolt.EntityEventListener<IPlayerState>
                 }
             }
 
+        }
 
         entity.QueueInput(input);
 
@@ -109,7 +123,7 @@ public class PlayerController : Bolt.EntityEventListener<IPlayerState>
                 {
                     if (cmd.Input.shootDirection != Vector3.zero)
                     {
-                        if (BoltNetwork.isServer)
+                        if (BoltNetwork.IsServer)
                         {
                             BoltEntity BE = BoltNetwork.Instantiate(BoltPrefabs.Projectile, transform.position, Quaternion.identity);
                             BE.transform.LookAt(transform.position + cmd.Input.shootDirection);

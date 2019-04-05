@@ -95,6 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd346345669cd7b46a8d884a6ff66ef0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  frame: 0
 --- !u!135 &135128666762429454
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -103,7 +104,7 @@ SphereCollider:
   m_GameObject: {fileID: 1709800598969904}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
